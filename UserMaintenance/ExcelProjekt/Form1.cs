@@ -117,7 +117,27 @@ namespace ExcelProjekt
             xlSheet.get_Range(
              GetCell(2, 1),
              GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
-            
+
+            Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));
+            headerRange.Font.Bold = true;
+            headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+            headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            headerRange.EntireColumn.AutoFit();
+            headerRange.RowHeight = 40;
+            headerRange.Interior.Color = Color.LightBlue;
+            headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+            Excel.Range tableRange = xlSheet.get_Range(GetCell(2, 1), GetCell(counter+1, headers.Length));
+            tableRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+            Excel.Range firstcolRange = xlSheet.get_Range(GetCell(2, 1), GetCell(counter + 1, 1));
+            firstcolRange.Font.Bold = true;
+            firstcolRange.Interior.Color = Color.LightYellow;
+
+            Excel.Range lastcolRange = xlSheet.get_Range(GetCell(2, headers.Length), GetCell(counter + 1, headers.Length));
+            lastcolRange.Interior.Color = Color.LightGreen;
+            lastcolRange.NumberFormat = "#.##";
+
 
 
 
