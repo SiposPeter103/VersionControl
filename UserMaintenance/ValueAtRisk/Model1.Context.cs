@@ -25,6 +25,6 @@ namespace ValueAtRisk
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Tick> Tick { get; set; }
+        public virtual DbSet<Tick> Ticks { get; set; }
     }
 }
