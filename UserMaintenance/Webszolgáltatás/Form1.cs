@@ -36,11 +36,11 @@ namespace Webszolgáltatás
             var result = response.GetExchangeRatesResult;
 
             dataGridView1.DataSource = Rates;
-            KulonFuggveny(result);
+            XmlFeldolgoz(result);
 
         }
 
-        public void KulonFuggveny(string result)
+        public void XmlFeldolgoz(string result)
         {
             var xml = new XmlDocument();
             xml.LoadXml(result);
