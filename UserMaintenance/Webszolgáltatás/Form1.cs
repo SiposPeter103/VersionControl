@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using Webszolgáltatás.Entities;
 using Webszolgáltatás.ServiceReference;
 
@@ -20,6 +21,7 @@ namespace Webszolgáltatás
         public Form1()
         {
             InitializeComponent();
+
             var mnbService = new MNBArfolyamServiceSoapClient();
 
             var request = new GetExchangeRatesRequestBody()
@@ -34,13 +36,36 @@ namespace Webszolgáltatás
             var result = response.GetExchangeRatesResult;
 
             dataGridView1.DataSource = Rates;
-
+            KulonFuggveny(result);
 
         }
 
+        public void KulonFuggveny(string result)
+        {
+            var xml = new XmlDocument();
+            xml.LoadXml(result);
+            
+            foreach (XmlElement element in xml.DocumentElement)
+            {
+                var rate = new RealData();
+                Rates.Add(rate);
+
+                rate.Date = DateTime.Parse(element.GetAttribute("date"));
+
+                var childElement = (XmlElement)element.ChildNodes[0];
+                rate.Currency = childElement.GetAttribute("curr");
+
+                var unit = decimal.Parse(childElement.GetAttribute("unit"));
+                var value = decimal.Parse(childElement.InnerText);
+                if (unit != 0)
+                    rate.Value = value / unit;
+            }
+        }
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
