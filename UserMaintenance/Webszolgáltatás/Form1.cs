@@ -17,13 +17,45 @@ namespace Webszolgáltatás
     public partial class Form1 : Form
     {
         BindingList<RealData> Rates = new BindingList<RealData>();
-        
+        BindingList<string> Currencies = new BindingList<string>();
+               
 
         public Form1()
         {
+            
             InitializeComponent();
+            comboBox1.DataSource = Currencies;
             RefreshData();
 
+        }
+        private void MiACurrency()
+        {
+            var mnbService = new MNBArfolyamServiceSoapClient();
+
+            var request = new GetCurrenciesRequestBody();
+           
+       
+
+            var response = mnbService.GetCurrencies(request);
+
+            var result = response.GetCurrenciesResult;
+            Currenciesfeltolt(result);
+
+
+
+          
+        }
+        private void Currenciesfeltolt(string result)
+        {
+            var xml = new XmlDocument();
+            xml.LoadXml(result);
+
+            foreach (XmlElement element in xml.DocumentElement)
+            {
+                var rate = new RealData();
+                Currencies.Add(rate.ToString());
+
+            }
         }
 
         private void RefreshData()
@@ -62,7 +94,10 @@ namespace Webszolgáltatás
                 rate.Date = DateTime.Parse(element.GetAttribute("date"));
 
                 var childElement = (XmlElement)element.ChildNodes[0];
+                if (childElement == null)
+                    continue;
                 rate.Currency = childElement.GetAttribute("curr");
+
 
                 var unit = decimal.Parse(childElement.GetAttribute("unit"));
                 var value = decimal.Parse(childElement.InnerText);
