@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace FejlesztésiMinták
 {   
-    public class Ball : Toy
+    public class Ball : Abstractions.Toy
     {          
 
         protected override void DrawImage(Graphics g)
