@@ -77,6 +77,16 @@ namespace FejlesztésiMinták
         {
             Factory = new CarFactory();
         }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactory
+            {
+                BoxColor = boxColorChoice.BackColor,
+                RibbonColor = ribbonColorChoice.BackColor
+                
+                
+            };
+        }
         private void DisplayNext()
         {
             if (_nextToy != null)
@@ -87,8 +97,13 @@ namespace FejlesztésiMinták
             Controls.Add(_nextToy);
 
         }
-
+        
         private void colorChoice_Click(object sender, EventArgs e)
+        {
+            NewMethod(sender);
+        }
+
+        private static void NewMethod(object sender)
         {
             var button = (Button)sender;
             var colorPicker = new ColorDialog();
@@ -96,6 +111,16 @@ namespace FejlesztésiMinták
             if (colorPicker.ShowDialog() != DialogResult.OK)
                 return;
             button.BackColor = colorPicker.Color;
+        }
+
+        private void boxColorChoice_Click(object sender, EventArgs e)
+        {
+            NewMethod(sender);
+        }
+
+        private void ribbonColorChoice_Click(object sender, EventArgs e)
+        {
+            NewMethod(sender);
         }
     }
 }

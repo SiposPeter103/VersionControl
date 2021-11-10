@@ -37,11 +37,17 @@ namespace FejlesztésiMinták
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.colorChoice = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.boxColorChoice = new System.Windows.Forms.Button();
+            this.ribbonColorChoice = new System.Windows.Forms.Button();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainPanel
             // 
+            this.mainPanel.Controls.Add(this.ribbonColorChoice);
+            this.mainPanel.Controls.Add(this.boxColorChoice);
+            this.mainPanel.Controls.Add(this.button3);
             this.mainPanel.Controls.Add(this.colorChoice);
             this.mainPanel.Controls.Add(this.label1);
             this.mainPanel.Controls.Add(this.button2);
@@ -87,7 +93,7 @@ namespace FejlesztésiMinták
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(165, 114);
+            this.label1.Location = new System.Drawing.Point(246, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 2;
@@ -102,6 +108,36 @@ namespace FejlesztésiMinták
             this.colorChoice.TabIndex = 3;
             this.colorChoice.UseVisualStyleBackColor = false;
             this.colorChoice.Click += new System.EventHandler(this.colorChoice_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(165, 114);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Present";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // boxColorChoice
+            // 
+            this.boxColorChoice.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.boxColorChoice.Location = new System.Drawing.Point(165, 143);
+            this.boxColorChoice.Name = "boxColorChoice";
+            this.boxColorChoice.Size = new System.Drawing.Size(75, 23);
+            this.boxColorChoice.TabIndex = 5;
+            this.boxColorChoice.UseVisualStyleBackColor = false;
+            this.boxColorChoice.Click += new System.EventHandler(this.boxColorChoice_Click);
+            // 
+            // ribbonColorChoice
+            // 
+            this.ribbonColorChoice.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.ribbonColorChoice.Location = new System.Drawing.Point(165, 172);
+            this.ribbonColorChoice.Name = "ribbonColorChoice";
+            this.ribbonColorChoice.Size = new System.Drawing.Size(75, 23);
+            this.ribbonColorChoice.TabIndex = 6;
+            this.ribbonColorChoice.UseVisualStyleBackColor = false;
+            this.ribbonColorChoice.Click += new System.EventHandler(this.ribbonColorChoice_Click);
             // 
             // Form1
             // 
@@ -126,6 +162,9 @@ namespace FejlesztésiMinták
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button colorChoice;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button ribbonColorChoice;
+        private System.Windows.Forms.Button boxColorChoice;
     }
 }
 
