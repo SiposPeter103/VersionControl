@@ -25,7 +25,7 @@ namespace FejlesztésiMinták
         public Form1()
         {
             InitializeComponent();
-            Factory = new BallFactory();
+            Factory = new CarFactory();
         }
 
         private void createTimer_Tick(object sender, EventArgs e)
