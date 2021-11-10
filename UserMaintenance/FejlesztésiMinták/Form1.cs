@@ -67,7 +67,10 @@ namespace FejlesztésiMinták
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Factory = new BallFactory();
+            Factory = new BallFactory
+            {
+                BallColor = colorChoice.BackColor
+            };
         }
 
         private void button2_Click(object sender, EventArgs e)
