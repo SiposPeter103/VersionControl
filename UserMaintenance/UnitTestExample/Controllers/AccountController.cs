@@ -22,7 +22,8 @@ namespace UnitTestExample.Controllers
 
         public Account Register(string email, string password)
         {
-            if(!ValidateEmail(email))
+            Guid obj = Guid.NewGuid();
+            if (!ValidateEmail(email))
                 throw new ValidationException(
                     "A megadott e-mail cím nem megfelelő!");
             if(!ValidatePassword(password))
@@ -33,7 +34,8 @@ namespace UnitTestExample.Controllers
             var account = new Account()
             {
                 Email = email,
-                Password = password
+                Password = password,
+                ID = obj
             };
 
             var newAccount = AccountManager.CreateAccount(account);
