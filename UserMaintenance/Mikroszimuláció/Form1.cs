@@ -151,7 +151,7 @@ namespace Mikroszimuláció
             for (int year = 2005; year < numericUpDown1.Value; year++)
             {
                 int i = 0;
-                richTextBox1.Text = "Szimulációs év:" + year + "\n\t Fiúk:" + MalePop[i] + "\n\t Lányok:" + FemalePop[i] + "\n\n";
+                richTextBox1.Text += "Szimulációs év:" + year + "\n\t Fiúk:" + MalePop[i] + "\n\t Lányok:" + FemalePop[i] + "\n\n";
                 i++;
                 
             }
