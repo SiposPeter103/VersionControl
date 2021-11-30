@@ -17,6 +17,7 @@ namespace Mikroszimuláció
         List<Person> Population = new List<Person>();
         List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
+        Random rng = new Random(1337);
         public Form1()
         {
             InitializeComponent();
@@ -25,7 +26,23 @@ namespace Mikroszimuláció
             BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
 
-            dataGridView1.DataSource = DeathProbabilities;
+            for(int year = 2005; year < 2025; year++)
+            {
+                for(int i = 0; i < Population.Count; i++)
+                {
+
+                }
+                int numOfMales = (from x in Population
+                                  where x.Gender == Gender.Male && x.IsAlive
+                                  select x).Count();
+                int numOfFemales = (from y in Population
+                                    where y.Gender == Gender.Female && y.IsAlive
+                                    select y).Count();
+                Console.WriteLine(string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, numOfMales, numOfFemales));
+                
+            }
+
+
         }
 
         public List<Person> GetPopulation(string csvpath)
