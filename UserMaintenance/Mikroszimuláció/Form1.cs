@@ -17,7 +17,7 @@ namespace Mikroszimuláció
         List<Person> Population = new List<Person>();
         List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
-        Random rng = new Random(1337);
+        Random rng = new Random(1234);
         public Form1()
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace Mikroszimuláció
             {
                 for(int i = 0; i < Population.Count; i++)
                 {
-
+                    SimStep(year, Population[i]);
                 }
                 int numOfMales = (from x in Population
                                   where x.Gender == Gender.Male && x.IsAlive
@@ -104,6 +104,35 @@ namespace Mikroszimuláció
                 }
             }
             return deathprob;
+        }
+
+        public void SimStep(int year, Person person)
+        {
+            if (person.IsAlive == false) return;
+            int age = (int)(year - person.BirthYear);
+
+
+            double oddsOfDeath = (from x in DeathProbabilities
+                                  where x.Gender == person.Gender && x.Age == age
+                                  select x.OddsOfDeath).FirstOrDefault();
+            if (rng.NextDouble() <= oddsOfDeath) person.IsAlive = false;
+
+
+            if (person.IsAlive && person.Gender == Gender.Female)
+            {
+                double oddsOfBirth = (from x in BirthProbabilities
+                                      where x.Age == age
+                                      select x.OddsOfBirth).FirstOrDefault();
+                if(rng.NextDouble() <= oddsOfBirth)
+                {
+                    Person ujszulott = new Person();
+                    ujszulott.BirthYear = year;
+                    ujszulott.Gender = (Gender)(rng.Next(1, 3));
+                    ujszulott.IsAlive = true;
+                    ujszulott.NumOfChildren = 0;
+                    Population.Add(ujszulott);
+                }
+            }
         }
             
             
