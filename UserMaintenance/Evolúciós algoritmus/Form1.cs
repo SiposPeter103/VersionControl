@@ -20,6 +20,8 @@ namespace Evolúciós_algoritmus
             InitializeComponent();
             ga = gc.ActivateDisplay();
             this.Controls.Add(ga);
+            //gc.AddPlayer();
+            //gc.Start(true);
         }
     }
 }
