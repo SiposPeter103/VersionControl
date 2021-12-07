@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestExample.Test", "Uni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mikroszimuláció", "Mikroszimuláció\Mikroszimuláció.csproj", "{5D6D2254-A02E-45A5-8FC4-E1B74968B93A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evolúciós algoritmus", "Evolúciós algoritmus\Evolúciós algoritmus.csproj", "{26B85183-59D0-4227-BCAB-4C8108D6A20C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{5D6D2254-A02E-45A5-8FC4-E1B74968B93A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D6D2254-A02E-45A5-8FC4-E1B74968B93A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D6D2254-A02E-45A5-8FC4-E1B74968B93A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26B85183-59D0-4227-BCAB-4C8108D6A20C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26B85183-59D0-4227-BCAB-4C8108D6A20C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26B85183-59D0-4227-BCAB-4C8108D6A20C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26B85183-59D0-4227-BCAB-4C8108D6A20C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

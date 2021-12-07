@@ -119,7 +119,7 @@ namespace Mikroszimuláció
 
         public void SimStep(int year, Person person)
         {
-            if (person.IsAlive == false) return;
+            if (!person.IsAlive) return;
             int age = (int)(year - person.BirthYear);
 
 
